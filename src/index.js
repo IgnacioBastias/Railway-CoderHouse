@@ -5,20 +5,19 @@ import express from 'express';
 import minimist from 'minimist';
 
 
+
 const optionalArgsObject = {
   alias: {
     m: 'modo',
-    p: 'port'
   },
   default: {
-    port: '8080',
     modo: 'fork'
   }
 };
 
 const args = minimist(process.argv.slice(2), optionalArgsObject);
 const modo = args.modo
-
+const PORT = process.env.PORT || 8080; 
 const CPUs = os.cpus().length;
 
 const app = express();
@@ -76,6 +75,6 @@ if (modo === 'cluster' && cluster.isPrimary) {
   });
 
 
-  app.listen(args.port, () => console.log(`Servidor express escuchando en el puerto ${args.port} - PID WORKER ${process.pid}`));
+  app.listen(PORT, () => console.log(`Servidor express escuchando en el puerto ${PORT} - PID WORKER ${process.pid}`));
 
 };
