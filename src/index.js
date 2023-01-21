@@ -52,6 +52,13 @@ if (modo === 'cluster' && cluster.isPrimary) {
     });
   });
 
+  app.get('/hola', (req, res) => {
+
+    res.json({
+      msg: `Hola`,
+    });
+  });
+
   app.get('/info', (req, res) => {
 
     console.log(`PID= ${process.pid}`)
