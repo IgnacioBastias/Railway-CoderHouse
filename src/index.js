@@ -43,19 +43,9 @@ if (modo === 'cluster' && cluster.isPrimary) {
     });
   });
 
-  app.get('/', (req, res) => {
-
-    res.json({
-      pid: process.pid,
-      msg: `Hola desde puerto ${args.port} `,
-    });
-  });
-
   app.get('/hola', (req, res) => {
 
-    res.json({
-      msg: `Hola`,
-    });
+    res.send('<h1>Bienvenido a mi servidor railway!</h1>')
   });
 
   app.get('/info', (req, res) => {
