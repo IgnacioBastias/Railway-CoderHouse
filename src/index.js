@@ -43,7 +43,7 @@ if (modo === 'cluster' && cluster.isPrimary) {
     });
   });
 
-  app.get('/hola', (req, res) => {
+  app.get('/', (req, res) => {
 
     res.send('<h1>Bienvenido a mi servidor railway!</h1>')
   });
